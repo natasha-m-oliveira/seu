@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    border-radius: .8rem;
+}
+
+html {
+    --black: #000000;
+    --white: #ffffff;
+    --grey: #C4C4C4;
+    --grey-light: #d0d3da;
+    --grey-dark: #9a9ea7;
+    --red: #F00038;
+    --pink: #d42e89;
+    --pink-light: #d35fa0;
+    --pink-dark: #961866;
+    --yellow: #FFD400;
+    --green: #94D21D;
+    --blue: #4963ac;
+    --blue-light: #3379a6;
+    --blue-dark: #003153;
+    /*1rem = 16px (User agent) = 100% (User agent)*/
+    font-size: 62.5%;
+    /*10px*/
+    transition: all 0.5s ease-in;
+}
+
+body {
+    /* display: flex; */
+    background-image: linear-gradient(to bottom right, var(--pink) , var(--blue-dark));
+}
+
+body.menu-active {
+    overflow: hidden;
+}
+
+/*input and buttons*/
+
+input, textarea {
+    background: transparent;
+    border-bottom: .2rem solid var(--blue);
+    border-radius: 0;
+    padding: 0 1.6rem;
+    outline: none;
+    color: var(--black);
+}
+
+input, textarea, button, .button {
+    height: 5rem;
+}
+
+select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 1.5rem;
+    margin: 1rem 0 2rem 0;
+    height: 4rem;
+}
+
+select option {
+    background: var(--blue-dark);
+}
+
+select option:checked {
+    background: var(--blue);
+}
+
+body, button, input, textarea, select {
+    /*intervalo de tamanho
+    mínimo; ideal; máximo*/
+    font-size: clamp(14px, 1.8rem, 2vw);
+    font-family: 'Nunito', sans-serif;
+    color: var(--white);
+}
+
+input, textarea {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: 2rem;
+}
+
+button, .button {
+    font-weight: 500;
+    /*Espaçamento entre as linhas*/
+    line-height: 0;
+    /*Para o alinhamento ao centro tanto na vertial como na horizontal*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue);
+    color: var(--grey-light);
+    transition: filter .2s;
+    cursor: pointer;
+}
+
+button:hover, .button:hover {
+    /*Aplica um brilho*/
+    filter: brightness(1.2);
+}
+
+.sr-only {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: rect(0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/*Header*/
+
+.content header {
+    width: 80%;
+    margin: 3.5rem auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.content header img {
+    width: 12rem;
+    border-radius: 50%;
+}
+
+.content header .nav .btn-mobile {
+    display: none;
+}
+
+.content header .nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.content header .nav a {
+    color: var(--white);
+    line-height: 2.72rem;
+    border-radius: 0;
+    font-size: clamp(14px, 1.6rem, 2vw);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.7rem 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.content header .nav a.current, .content header .nav a:hover {
+    border-top: 0.2rem solid var(--blue-dark);
+}
+
+.content header form.search {
+    display: flex;
+    align-items: center;
+    border-bottom: .2rem solid var(--blue-dark);
+    border-radius: 0;
+}
+
+.content header form.search input {
+    border-bottom: 0;
+    color: var(--black);
+    width: 15rem;
+}
+
+.content header form.search input::placeholder {
+    color: var(--grey-light);
+}
+
+.content header form.search button {
+    background: transparent;
+    color: var(--blue-dark);
+    height: 2rem;
+}
+
+.content header form.search button:hover {
+    color: var(--black);
+}
+
+/*Footer*/
+
+.content footer {
+    grid-area: footer;
+    background: var(--black);
+    /* background: linear-gradient(var(--purple), var(--blue)); */
+    border-radius: 0;
+    font-size: clamp(14px, 1.1rem, 2vw);
+}
+
+footer .first-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 5%;
+    margin-top: 1rem;
+    position: relative;
+    color: var(--blue);
+    border-radius: 0;
+    /* border-top: 0.2rem solid var(--green); */
+}
+
+footer .address img {
+    width: 8rem;
+}
+
+footer .social-media {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
+footer .social-item {
+    width: 3rem;
+    height: 3rem;
+    background-position: center !important;
+    background-size: contain !important;
+    margin: 0 0.5rem;
+    background-repeat: no-repeat !important;
+    transition: all 0.3s;
+}
+
+/* footer .social-item:hover {
+    width: 3.2rem;
+    height: 3.2rem;
+} */
+
+#instagram {
+    background: url("../images/icon-intagram.svg");
+}
+
+/* #instagram:hover {
+    background: url("../images/instagram-logo-yellow.svg");
+} */
+
+#linkedin {
+    background: url("../images/icon-linkedin.svg");
+}
+
+/* #linkedin:hover {
+    background: url("../images/linkedin-logo-yellow.svg");
+} */
+
+#whatsapp {
+    background: url("../images/icon-whatsapp.svg");
+}
+
+/* #whatsapp:hover {
+    background: url("../images/whatsapp-logo-yellow.svg");
+} */
+
+footer .second-line {
+    border-radius: 0;
+    border-top: 0.015rem solid var(--grey);
+    background: var(--black);
+}
+
+footer .second-line p {
+    text-align: center;
+}
+
+footer .second-line a {
+    color: var(--white);
+}
+
+footer .second-line a:hover {
+    color: var(--blue-light);
+}
+
+/*Scrollbar*/
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0.5rem var(--grey-light);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 1rem;
+}
+
+/*Âncoras*/
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: auto;
+}
+
+:target {
+    scroll-margin-top: 5rem;
+}
+
+.container .anchor {
+    height: 100vh;
+    position: absolute;
+    z-index: 1000;
+}
+
+.container .anchor #top-of-page {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    background-color: var(--green);
+    border-radius: 50%;
+    transition: 0.35s;
+}
+
+.container .anchor #top-of-page.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container .anchor a {
+    color: var(--blue-dark);
+}
+
+.container .anchor a:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f106";
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+/*Error Messages*/
+
+.toast {
+    text-align: center;
+}
+
+.invalid {
+    border-bottom: .2rem solid var(--red);
+}
+
+.error-msg {
+    color: var(--red);
+    margin-bottom: 3rem;
+}
+
+.success-msg {
+    color: var(--green);
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 60rem) {
+    html {
+        overflow-x: hidden;
+    }
+    .content {
+        width: 100%;
+        margin: 0;
+    }
+    .content header {
+        width: 100%;
+        padding: 0 2rem;
+    }
+    .content header .nav ul {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 10rem;
+        right: 0;
+        background: var(--blue-dark);
+        transition: .6s;
+        z-index: 1000;
+        height: 0;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    .content header .nav.active ul {
+        min-height: 100vh;
+        visibility: visible;
+        overflow-y: auto;
+    }
+    .content header .nav li, a {
+        padding: 2rem 0;
+        margin: 0 2rem;
+    }
+    .content header .nav .btn-mobile {
+        display: flex;
+        padding: 0.6rem 1rem;
+        border: none;
+        background: none;
+    }
+    .content header .nav .btn-mobile .burger {
+        border-top: 0.2rem solid;
+        border-radius: 0;
+        width: 2rem;
+        margin-left: 1rem;
+    }
+    .content header .nav .btn-mobile .burger::after, .burger::before {
+        content: '';
+        /*Variável que copia a cor do elemento de origem*/
+        background: currentColor;
+        display: block;
+        width: 2rem;
+        height: 0.2rem;
+        margin-top: 0.5rem;
+        transition: 0.3s;
+        position: relative;
+    }
+    .content header .nav.active .btn-mobile .burger {
+        border-top-color: transparent;
+    }
+    .content header .nav.active .btn-mobile .burger::before {
+        transform: rotate(135deg);
+    }
+    .content header .nav.active .btn-mobile .burger::after {
+        transform: rotate(-135deg);
+        top: -0.7rem;
+    }
+    .content header form.dropdown {
+        display: none;
+    }
+    .content header .settings-mobile {
+        display: block;
+    }
+    .content header .button {
+        display: none;
+    }
+    .container .anchor #top-of-page {
+        bottom: 1rem;
+        right: 0;
+    }
+}
