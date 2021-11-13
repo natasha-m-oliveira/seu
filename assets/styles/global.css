@@ -373,7 +373,7 @@ html {
         width: 100%;
         top: 10rem;
         right: 0;
-        background: var(--blue-dark);
+        background: linear-gradient(to bottom right, var(--pink) , var(--blue-dark));
         transition: .6s;
         z-index: 1000;
         height: 0;
