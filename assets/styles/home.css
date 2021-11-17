@@ -1,7 +1,7 @@
 .content {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 11.4rem 30rem 1fr 15rem;
+    grid-template-rows: 11.4rem 45rem 1fr 15rem;
     grid-template-areas: "header" "banner" "main" "footer"
 }
 
@@ -23,7 +23,7 @@ main {
 main .container {
     display: flex;
     width: 80%;
-    margin: 10rem 0;
+    margin: 5rem 0;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -43,7 +43,13 @@ section.banner .container {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 0 4rem;
+    /* padding: 0 4rem; */
+    background: url(../images/banner-01.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-blend-mode: screen;
+    background-position: top center;
+    border-radius: 0;
 }
 
 section.banner .slide {
@@ -53,7 +59,7 @@ section.banner .slide {
 section.banner .slide.active {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 80%;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
@@ -124,7 +130,7 @@ section.banner .container .indicator .btn.active {
     height: 45rem;
     margin: 2rem auto;
     padding: 2rem;
-    background: var(--grey-light);
+    background: var(--blue-dark);
     transition: all 0.5s;
 }
 
@@ -148,7 +154,7 @@ section.banner .container .indicator .btn.active {
 
 .card .second-line p {
     text-align: justify;
-    color: var(--blue-dark);
+    color: var(--white);
 }
 
 /*Form Contact*/
@@ -164,7 +170,7 @@ form h3 {
 
 .column-model {
     width: 100%;
-    margin-top: 5rem;
+    margin: 5rem 0;
 }
 
 .row {

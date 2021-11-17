@@ -169,8 +169,8 @@ button:hover, .button:hover {
     width: 15rem;
 }
 
-.content header form.search input::placeholder {
-    color: var(--grey-light);
+::-webkit-input-placeholder {
+    color: var(--grey);
 }
 
 .content header form.search button {
@@ -314,7 +314,7 @@ html {
     visibility: hidden;
     display: flex;
     align-items: center;
-    background-color: var(--green);
+    background-color: var(--blue-dark);
     border-radius: 50%;
     transition: 0.35s;
 }
@@ -325,7 +325,7 @@ html {
 }
 
 .container .anchor a {
-    color: var(--blue-dark);
+    color: var(--grey-light);
 }
 
 .container .anchor a:after {

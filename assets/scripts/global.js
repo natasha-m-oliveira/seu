@@ -41,6 +41,17 @@ function toggleMenu(event) {
     }
 }
 
+window.addEventListener("scroll", () => {
+    const anchor = document.querySelector("[data-anchor]");
+    let windowPosition = this.scrollY;
+    console.log(windowPosition);
+    if(windowPosition >= 500){
+        anchor.classList.add("visible");
+    }else{
+        anchor.classList.remove("visible");
+    }
+});
+
 if (btnMobile !== null) {
     btnMobile.addEventListener("click", toggleMenu);
     //Aciona o evento de clique assim que executado
