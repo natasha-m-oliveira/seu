@@ -76,6 +76,7 @@ section.banner .box .first-line, .second-line {
 
 section.banner .box .first-line p {
     text-align: center;
+    font-size: clamp(14px, 2rem, 2vw);
     animation: slideContent 0.4s linear 0.6s backwards;
 }
 
@@ -208,5 +209,8 @@ form h3 {
     }
     .col {
         margin: 0 0 2rem 0;
+    }
+    section.banner .container {
+        background-size: auto 45rem;
     }
 }

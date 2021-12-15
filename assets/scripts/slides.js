@@ -1,3 +1,5 @@
+const images = ['url(assets/images/banner-01.png)', 'url(assets/images/banner-02.png)', 'url(assets/images/banner-03.png)'];
+const banner = document.querySelector("[data-banner]");
 let slides = document.querySelectorAll("[data-slide]"),
     buttons = document.querySelectorAll("[data-btn]"),
     index = 0,
@@ -8,7 +10,28 @@ let slides = document.querySelectorAll("[data-slide]"),
     allowedTime = 300, // tempo máximo permitido para percorre essa distância
     elapsedTime,
     startTime,
-    isMove = false;
+    isMove = false,
+    currentImageIndex = 0,
+    currentImage = '';
+
+function changeImage(imageIndex) {
+    const shouldDisplayFirstImage = imageIndex === images.length;
+    const shouldDisplayLastImage = imageIndex < 0;
+
+    if (shouldDisplayFirstImage) {
+        imageIndex = 0;
+    } else if (shouldDisplayLastImage) {
+        imageIndex = images.length;
+    }
+
+    currentImage = images[imageIndex];
+    if(window.innerWidth <= 600) {
+        banner.setAttribute('style', 'background: '+currentImage+'; background-repeat: no-repeat; background-size: auto 45rem; background-position: top center;');
+    } else {
+        banner.setAttribute('style', 'background: '+currentImage+'; background-repeat: no-repeat; background-size: 100%; background-position: top center;');
+    }
+    currentImageIndex = imageIndex;
+}
 
 buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
@@ -18,6 +41,7 @@ buttons.forEach((button, index) => {
         }
         slides[index].classList.add("active");
         buttons[index].classList.add("active");
+        changeImage(index);
     });
 });
 
@@ -28,6 +52,10 @@ slides.forEach(slide => {
     slide.addEventListener("touchmove", touchMove);
     slide.addEventListener("touchend", touchEnd);
 });
+
+ 
+banner.addEventListener("mouseover", mouveOver);
+banner.addEventListener("mouseout", mouseOut);
 
 function toNext(event) {
     //Previne no caso do mobile que o menu seja aberto e fechado na sequência
@@ -41,6 +69,8 @@ function toNext(event) {
     index = (index + 1) % slides.length;
     slides[index].classList.add("active");
     buttons[index].classList.add("active");
+    currentImageIndex = currentImageIndex+1;
+    changeImage(currentImageIndex);
 }
 
 function toPrev(event) {
@@ -55,6 +85,8 @@ function toPrev(event) {
     index = (index - 1 + slides.length) % slides.length;
     slides[index].classList.add("active");
     buttons[index].classList.add("active");
+    currentImageIndex = currentImageIndex-1;
+    changeImage(currentImageIndex);
 }
 
 function touchStart(event) {
@@ -109,6 +141,11 @@ function autoplay() {
         toNext("click");
     }
 }
-// Autoplay
 
-setInterval(autoplay, 10000); //Slides mudam a cada 10 segundos
+window.addEventListener("resize", () => {
+    console.log("funcionando");
+    currentImageIndex = currentImageIndex;
+    changeImage(currentImageIndex);
+});
+// Autoplay
+setInterval(autoplay, 7000); //Slides mudam a cada 7 segundos
